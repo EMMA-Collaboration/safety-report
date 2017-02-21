@@ -1,0 +1,53 @@
+\section{Safety Measures}
+A number of safety measures are proposed in order to minimize the risks and effects of the hazards
+described above.  The EMMA PGAC GHS is very similar to the gas handling systems used in the IRIS ionization chamber, the MAYA PPAC, and the York PGAC.
+\subsection{Hardware}
+\begin{enumerate}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+
+\item The maximum flow of isobutane from the ISAC gas shack is limited to 250\,cc/min by a low-pressure regulator feeding gas through a pre-set needle valve.
+\item A flammable gas sensor wired to an alarm in the main control room will be installed near the experimental area to detected any gas
+leaks.
+\item To prevent air-isobutane mixtures, isobutane is provided and pumped-out using the gas system plumbing only, whereas air is provided and pumped-out using the vacuum system plumbing only. To the extent possible, this is determined by the gas system design and enforced by interlocks.
+\item The procedures specified in \S\,\ref{procedures} require all gas-containing volumes to be purged of air or pumped to vacuum, and leak tested before introducing isobutane flow to the PGAC box.
+%\item  Two valves---one \marnote{missing $\rightarrow$} manual and one EPICS remote---will be installed in series on all gas lines entering the chamber to safeguard against failure leading to air ingress.
+%\item Flammable materials near the chamber must be limited to essential materials only.
+%\item To avoid a possible source of ignition, a cold cathode vacuum gauge is used to measure the scattering chamber pressure.
+\item A dedicated gas system proportional-integral-differential (PID) controller will control the isobutane flow into the PGAC box to maintain the set pressure. 
+\item The HV power supplies will be operated in trip-hold mode, ensuring that, at most, only one spark can occur.
+\item All valves are normally closed (N/C) types. They will close on loss of electrical power. Air-actuated valves will also close on loss of air pressure.
+
+\end{enumerate}
+\subsection{Interlocks}
+\label{interlocks}
+The pressure within the volume of the PGAC box will be monitored throughout the experiment. If
+the volumetric flow rate changes due to the development of a leak or a burst window, interlocks will be
+triggered to make the chamber safe. The specific interlocks are as follows:
+\begin{enumerate}
+\item \texttt{VA1} can be open if and only if \texttt{HEBT:IG19} $<$ $\textrm{P}_\textrm{max}$.
+
+This interlock shuts off the isobutane supply if the pressure in the scattering chamber exceeds $\textrm{P}_\textrm{max}$, typically set to $7\times10^{-5}$\,Torr.  This could occur in the event of isobutane entering the  scattering chamber via a broken window or if  bypass valve\texttt{VB4}   is opened with isobutane in PGAC box, etc.
+\item The HV supply can be on if and only if 
+(\texttt{VA1\_open}$) \land ($\texttt{FC1} $<\textrm{Q}_\textrm{max}) \land ($\texttt{FC1} $> \textrm{Q}_\textrm{min})$
+
+The \texttt{VA1\_open} condition ensures the potential for gas flow and ensures that the  HV supply is off when \texttt{VA1} is tripped closed. % by window breakage or \texttt{VB4} being opened.
+ It also
+ensures that HV is off during pumping and venting operations.
+
+The $\textrm{Q}_\textrm{min} < $ \texttt{FC1} $ < \textrm{Q}_\textrm{max}$ condition protects against air leaking into the the PGAC box after gas flow has
+been established.
+If air leaks into the PGAC box, the PID will reduce \texttt{FC1} flow to keep \texttt{PA1} pressure
+constant.
+As long as $\textrm{Q}_\textrm{max}/\textrm{Q}_\textrm{min} \lesssim 5$ , the volumetric flow rate will fall below Q$_\textrm{min}$ and trip off the HV before a
+flammable mix of air and isobutane can be formed.  For example, the leak scenario detailed in \S\ref{low_pres} requires a ratio of $\textrm{Q}_\textrm{max}/\textrm{Q}_\textrm{min} =10.9$.  Typical values are Q$_\textrm{max}=100$\,cc/min, and  Q$_\textrm{min}=20$\,cc/min.
+\end{enumerate}
+
+\noindent Additionally, the solenoid valve on the pump \texttt{PU1} automatically shuts when the pump is turned off.
+\subsection{Commissioning}
+Prior to the experiment, a commissioning phase will be undertaken to investigate the various
+features of the system. During this period the interlocks will be tested by initiating pressure rises
+using an inert gas, e.g., nitrogen. %This will enable us to set high/low pressure interlocks to within a tight margin of nominal operational pressure.
+Throughout these tests, the accelerator will
+be protected by a gate valve.

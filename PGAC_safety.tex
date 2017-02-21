@@ -1,0 +1,30 @@
+%%---------------------------"page width" for comments (97 columns)----------------------------%%
+%%3456789112345678921234567893123456789412345678|5123456789612345678971234567898123456789912345%%
+\documentclass[oneside]{article}
+\input{src/packages}
+\begin{document}
+%hello world
+%\pangram{100}
+%\begin{landscape}
+%\pangram{20}
+%\begin{figure}[ht]
+%\centerline{
+	%\fbox{\includegraphics[width=1.5\columnwidth,height=\textheight]{angles34}}}
+	%%\includegraphics[height=\textwidth,keepaspectratio]{tiger}
+	%\label{fig:angles34}
+%\end{figure}
+%\end{landscape}
+\input{emma_revision_5}
+\input{hazards}
+\input{safety_measures}
+\input{procedures_full}
+\singlespace
+%\nocite{*}
+\renewcommand{\refname}{References}
+%\renewcommand{\sectionmark}[1]{\markright{\sectionname.\ #1}}
+\lhead{\nouppercase\rightmark}
+\bibliographystyle{src/elsarticle-aps} 
+\bibliography{src/bib_link}
+\input{src/time_stamp}
+%\include{procedures}
+\end{document}
