@@ -1,6 +1,7 @@
 %\noindent Experiment N\textsuperscript{\underline{o}} Sxxx Safety Report\\
 %TBA : EMMA PGAC detector test\\
 %\\
+%submitted on April 15, 2015 for the second PGAC test.
 \title{EMMA PGAC Detector Test\\ Safety Report}
 \author{\authname\footnote{Experiment Leader/Safety Coordinator.  Tel.: +1 (604) 222-1047 x6859. \newline  \textit{\hspace*{1.5em} E-mail address:} \href{mailto:jon.lighthall@triumf.ca}{jon.lighthall@triumf.ca} (J.\ Lighthall).} \\ \small \itshape TRIUMF, 4004 Wesbrook Mall, Vancouver, BC V6T\,2A3, Canada}
 \date{\small \longusdate \today}%\formatdate{24}{2}{2009}
@@ -23,6 +24,8 @@
 \renewcommand{\headrulewidth}{0pt}
 %\doublespacing \linenumbers
 \section{Introduction}
+\subsection{Revision}
+The EMMA PGAC detector was partially characterized in a similar experiment in late April, 2014. The safety report for the previous test can be found in Ref.~\cite{old_safety}. This safety report is identical to that report with two exceptions: Section~\ref{det_status} has been updated to reflect the current status of the detector; and the procedures in Section~\ref{procedures} have been revised and expanded for clarity.
 \subsection{Experimental aim}
 %Charles Barton has extensive experience over many years with the UK PHOENIX ECRIS charge%
 %breeding ions source. He was the spokesperson for the ECRIS charge breeding experiment at%
@@ -65,7 +68,7 @@ Targets& Au, $^{12}$C \\
 The beam tests at ISAC-I aim to explore the %avalanche capability
 performance of the PGAC detector under realistic experimental conditions 
  %and record the signal pulse shapes
- over a range of pressure and voltage regimes. The PGAC detector was partially characterized in a similar experiment in late April, 2014. The safety report for the previous test can be found in Ref.~\cite{old_safety}. The goal of the current beam test is to fully characterize the detector using an updated electronics scheme and new collimating detector mask. The specific beam parameters of the test are listed in Table~\ref{beam_test}. 
+ over a range of pressure and voltage regimes.  The goal of the current beam test is to fully characterize the detector using an updated electronics scheme and new collimating detector mask. The specific beam parameters of the test are listed in Table~\ref{beam_test}. 
  The detector will be characterized with respect to its avalanche capability and 
 % The performance of the detector under multiple-hit conditions will also test the 
 position reconstruction capability.  These characteristics will be assessed by measuring the timing resolution and position resolution of the detector. 
@@ -236,9 +239,12 @@ to maintain a differential pressure within $\pm 4$\,Torr between the volume of t
 during pumping and venting procedures.
 
 \subsection{Status}
+\label{det_status}
 The EMMA PGAC detector has been designed, built and tested by the TRIUMF Detector Development group.  The current phase of commissioning utilizes in-beam testing to commission the detector for in-beam use. % and is ready for beam tests for the next part of the commissioning procedure.
-The current beam tests are a continuation of the tests conducted in April 2014.
-The tests will utilize the same interlocks and safety systems implemented on the HEBT beam line that were developed for the previous PGAC detector tests in April 2014~\cite{old_safety}. No further additions or adjustments to the safety systems are required.
+\subsubsection{Updates}
+The current in-beam tests are a continuation of the in-beam tests performed in April 2014.
+The tests will utilize the same interlocks and safety systems implemented on the HEBT beam line that were developed for the previous PGAC detector tests in April 2014~\cite{old_safety}. Following the recommendations of the safety review of the previous tests \cite{old_review}, the following additions have been made since the publication of the previous safety report. An interlock has been installed on the 110\,VAC power for the NIM crate used for the HV power supplies. All polyethylene tubing has been replaced with metal tubing. 
+No further additions or adjustments to the safety systems have been made.
 The improvements in the electronics setup and in the beam mask will %In-beam testing will also
  allow a more thorough examination of the position resolution and the particle trajectory reconstruction capacity of the detector system. % and maximum incident particle rate.
 
@@ -267,7 +273,7 @@ The improvements in the electronics setup and in the beam mask will %In-beam tes
 %the gas supply panel and \texttt{PU1} should all be copper or stainless steel.
 %\item (Optional) A mask may be fabricated and installed to characterize the position sensitivity of the PGAC.
 %\end{enumerate}
-
+\subsubsection{Bench Tests}
 The PGAC is designed to be operated with heavy ion beams.  The ionization potential of $\alpha$-decay sources, such as the $^{241}$Am source used in the bench tests,  is insufficient to adequately test the performance of the detector.  For example, with the detector optimized for $\alpha$ particles at 5\,Torr, the signal-to-ratio is %3--4:1
 2.7:1  for the cathode, 10.9:1 for the andode,
  and the timing resolution is 1.8\,ns~FWHM.  %The jitter induced by the slow rise times of the weak signals
@@ -666,7 +672,7 @@ The pressure change procedure is used when the detector system is in normal oper
 \item Turn off the HV power supplies.
 \item Close valve \texttt{VA1} on the gas supply line.
 \item Turn off pump \texttt{PU1}, closing the automatic valve on the gas exhaust line.
-\item \sout{Close valves \texttt{VB1} and \texttt{VB6} on the gas supply panel.} %Valves \texttt{VB1} and \texttt{VB6} remain open.
+%\item \sout{Close valves \texttt{VB1} and \texttt{VB6} on the gas supply panel.} %Valves \texttt{VB1} and \texttt{VB6} remain open.
 \item Contact Robert Openshaw or Philip Lu.
 \end{itemize}
 \subsubsection{Fire Alarm}
