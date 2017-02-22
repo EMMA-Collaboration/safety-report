@@ -2,21 +2,21 @@
 %TBA : EMMA PGAC detector test\\
 %\\
 \title{EMMA PGAC Detector Test\\ Safety Report}
-\author{}
-\date{}
+\author{\authname\footnote{Experiment Leader/Safety Coordinator.  Tel.: +1 (604) 222-1047 x6859. \newline  \textit{\hspace*{1.5em} E-mail address:} \href{mailto:jon.lighthall@triumf.ca}{jon.lighthall@triumf.ca} (J.\ Lighthall).} \\ \small \itshape TRIUMF, 4004 Wesbrook Mall, Vancouver, BC V6T\,2A3, Canada}
+\date{\small \longusdate \today}%\formatdate{24}{2}{2009}
 \maketitle
-\noindent Experiment Leader/Safety Coordinator:
-\begin{changemargin}{\parindent}
-\noindent Jon Lighthall\\
-TRIUMF\\
-4004 Wesbrook Mall\\
-Vancouver, BC V6T\,2A3\\
-Canada\\
-%\href{callto:6042221047p6859}
-{(604) 222-1047 x6859}\\%+44 1904 322221\\
-\href{mailto:lighthall@triumf.ca}{lighthall@triumf.ca}\\
-%Local Contact: -Gordon Ball\\
-\end{changemargin}
+%\noindent Experiment Leader/Safety Coordinator:
+%\begin{changemargin}{\parindent}
+%\noindent Jon Lighthall\\
+%TRIUMF\\
+%4004 Wesbrook Mall\\
+%Vancouver, BC V6T\,2A3\\
+%Canada\\
+%%\href{callto:6042221047p6859}
+%{(604) 222-1047 x6859}\\%+44 1904 322221\\
+%\href{mailto:lighthall@triumf.ca}{lighthall@triumf.ca}\\
+%%Local Contact: -Gordon Ball\\
+%\end{changemargin}
 \pagestyle{fancy}
 \rhead{EMMA PGAC Safety Report}
 \lhead{}
@@ -49,7 +49,7 @@ Ultimately the PGAC will form the entrance to the EMMA ionization chamber, a lar
  
 %, and provide position information to Doppler correction the $\gamma$-rays detected by the TIGRESS array.
 \subsection{Beam test}
-\begin{table}[b]
+\begin{table}[ht]
 \begin{center}
 \begin{tabulary}{0.5\textwidth}{R|L} 
 Beamline&ISAC-I, HEBT  \\
@@ -63,9 +63,9 @@ Targets& Au, $^{12}$C \\
 \label{beam_test}
 \end{table}
 The beam tests at ISAC-I aim to explore the %avalanche capability
-peformance of the PGAC detector under realistic experimental conditions 
+performance of the PGAC detector under realistic experimental conditions 
  %and record the signal pulse shapes
- over a range of pressure and voltage regimes. The specific beam parameters of the test are listed in Table~\ref{beam_test}. 
+ over a range of pressure and voltage regimes. The PGAC detector was partially characterized in a similar experiment in late April, 2014. The safety report for the previous test can be found in Ref.~\cite{old_safety}. The goal of the current beam test is to fully characterize the detector using an updated electronics scheme and new collimating detector mask. The specific beam parameters of the test are listed in Table~\ref{beam_test}. 
  The detector will be characterized with respect to its avalanche capability and 
 % The performance of the detector under multiple-hit conditions will also test the 
 position reconstruction capability.  These characteristics will be assessed by measuring the timing resolution and position resolution of the detector. 
@@ -88,39 +88,48 @@ anode of the first PGAC will be 685\,mm from the target wheel.  With the center 
 With the inclusion of the 10.16\,cm diameter beam pipe, % and the proposed mask,
 the detector will cover scattering angles of 25.8$^\circ$--34.2$^\circ$, subtending 12.1\,msr or 60\% of the active detector area. With the additional inclusion of the proposed mask, the exposed area is reduced by an additional 73\%.   Thus, the expected count rate is $1.0 \times 10^5$\,cps.
 
-
-
 \section{Hardware}
 \subsection{PGAC Detector}
-The EMMA PGAC is a position-sensitive, multi-wire proportional counter operating in the avalanche regime. Some of the relevant specifications of the detector are listed in Table~\ref{detector}.  Two identical PGACs have been constructed and both with be tested simultaneously in the same PGAC box during these tests.  Two detectors are required for these tests in order to provide a mutual time reference.  In addition, using two detectors allows ray-tracing of the incident particles.
-
+The EMMA PGAC is a position-sensitive, multi-wire proportional counter operating in the avalanche regime. Some of the relevant specifications of the detector are listed in Table~\ref{detector}.  Two identical PGACs have been constructed and both will be tested simultaneously in the same PGAC box during these tests.  Two detectors are required for these tests in order to provide a mutual time reference.  In addition, using two detectors allows ray-tracing of the incident particles.
 
 \begin{table}[t]
 \begin{center}
 \begin{tabulary}{1.0\textwidth}{R|L} 
 %\begin{tabular}{p{0.45\columnwidth}|p{0.45\columnwidth}} 
+% gas properties
+\raggedleft Gas (ionization media)&Isobutane\\
+\raggedleft Nominal operating pressure range&$P=2$--6\,Torr\\
 \raggedleft PGAC box internal volume & 12.6\,L\\
 \raggedleft $0^\circ$ scattering chamber internal volume & 50\,L\\
-\raggedleft Operating pressure range&3--6\,Torr\\
 \raggedleft Maximum quantity of isobutane in PGAC box (6\,Torr)&0.25\,g\\
-\hline
+\hline %window properties
 \raggedleft Window material &Mylar\\
-\raggedleft Window thickness&2\,$\mu$m\\
+\raggedleft Nominal window thickness&1--2\,$\mu$m\\
 \raggedleft Window area& 66\,mm $\times$ 166\,mm (110\,cm$^2$)\\
+\raggedleft Window position (from anode)& $-36.3$\,mm\hspace{5.4em}(test)\\
+&$-27.2$\,mm,  $+52.8$\,mm (focal plane)\\
 \raggedleft 0.9\,$\mu$m-thick window burst pressure &24\,Torr\\
 \raggedleft 2.0\,$\mu$m-thick window burst pressure &57\,Torr\\
 %\raggedleft Window reverse burst pressure (SiN 30\,nm)&13<P$_\textrm{rb}$<27\,mbar\\
-\hline
+\hline %wire properties
+\raggedleft Wire material&Gold-plated tungsten\\
+\raggedleft Cathode wire diameter&25\,$\mu$m\\
 \raggedleft Cathode wire pitch&1.0\,mm\\
+\raggedleft Number of cathode wires&166 ($x$-direction)\\
+& ~~66 ($y$-direction)\\
+\raggedleft Anode wire diameter&15\,$\mu$m\\
+\raggedleft Anode wire pitch&1.0\,mm\\
+\raggedleft Number of anode wires &$3\times22$\\  
 \raggedleft Anode-cathode gap&3.18\,mm\\
-\raggedleft Active area&60\,mm $\times$ 160\,mm (96\,cm$^2$)\\
-\hline
-\raggedleft Typical anode-cathode voltage &550\,V\\
-\raggedleft Typical anode voltage &+470\,V\\
-\raggedleft Typical cathode voltage &-80\,V\\
+\raggedleft Energized area&60\,mm $\times$ 160\,mm (96\,cm$^2$)\\
+\raggedleft Fiducial area&54\,mm $\times$ 154\,mm (83\,cm$^2$)\\
+\hline %voltage properties
+\raggedleft Typical cathode voltage & ~~~$V_\textrm{c}=-80$\,V\\
+\raggedleft Typical anode voltage & ~~~$V_\textrm{a}=+470$\,V\\
+\raggedleft Typical anode-cathode voltage &$\Delta V=550$\,V\\
 \end{tabulary}
 \end{center}
-\caption{Characteristics of the PGAC detectors and the experimental setup.}
+\caption{Characteristics of the PGAC detectors and the experimental setup. Physical specifications are given for the gas, windows, wire planes, and applied voltages. The position of the windows is given relative to the anode plane; this refers to the detector nearest the target.}
 \label{detector}
 \end{table}
 
@@ -227,41 +236,48 @@ to maintain a differential pressure within $\pm 4$\,Torr between the volume of t
 during pumping and venting procedures.
 
 \subsection{Status}
-The PGAC detector has been designed, built and tested by the TRIUMF Detector Development group.  The next phase of commissioning requires in-beam testing to commission the detector for in-beam use. % and is ready for beam tests for the next part of the commissioning procedure.
-The PGAC is designed to be operated with heavy ion beams.  The ionization potential of $\alpha$-decay sources, such as the $^{241}$Am source used in the bench tests,  is insufficient to adequately test the performance of the detector.  For example, with the detector optimized for $\alpha$ particles at 5\,Torr, the signal-to-ratio is %3--4:1
-2.7:1  for the cathode, 10.9:1 for the andode,
- and the timing resolution is 1.8\,ns~FWHM.  %The jitter induced by the slow rise times of the weak signals
-The ionization from the scattered $^{16}$O beam will be a factor of 12.1 greater than the ionization from the $\alpha$ particles from $^{241}$Am. The robust signals produced by the $^{16}$O will improve the timing resolution by about a factor of 3 and provide a more accurate characterization of the detector.  In-beam testing will also allow a more thorough examination of the position reconstruction and 
-maximum incident particle rate.
+The EMMA PGAC detector has been designed, built and tested by the TRIUMF Detector Development group.  The current phase of commissioning utilizes in-beam testing to commission the detector for in-beam use. % and is ready for beam tests for the next part of the commissioning procedure.
+The current beam tests are a continuation of the tests conducted in April 2014.
+The tests will utilize the same interlocks and safety systems implemented on the HEBT beam line that were developed for the previous PGAC detector tests in April 2014~\cite{old_safety}. No further additions or adjustments to the safety systems are required.
+The improvements in the electronics setup and in the beam mask will %In-beam testing will also
+ allow a more thorough examination of the position resolution and the particle trajectory reconstruction capacity of the detector system. % and maximum incident particle rate.
 
-The EMMA PGAC test will utilize the same interlocks and safety systems implemented on the HEBT beam line that were developed for the test of the York PGAC.  In addition, 
+%test of the York PGAC.
+%  In addition, 
+%%\begin{enumerate}
+%%\setlength{\itemsep}{0pt}
+%%\setlength{\parskip}{0pt}
+%%\setlength{\parsep}{0pt}
+%%\item Convectron gauge \texttt{HEBT:CG19} has been connected to EPICS.
+%%\item Needle valve \texttt{MVV19} has been installed downstream of valve \texttt{HEBT:VV19} to control the vent rate and protect the
+%%PGAC window.
+%%\item Interlock valve \texttt{VA1} has been installed.
+%%\item A flammable gas sensor has been installed, commissioned, and calibrated in the experimental area.
+%%\item The Controls group has provided a ``digital out'' port for valve \texttt{VA1},
+%%a ``digital out'' port for the HV interlock, and an ``analogue in'' port for \texttt{FC1} flow signal.
+%%\end{enumerate}
+%the following hardware changes must be made:
 %\begin{enumerate}
 %\setlength{\itemsep}{0pt}
 %\setlength{\parskip}{0pt}
 %\setlength{\parsep}{0pt}
-%\item Convectron gauge \texttt{HEBT:CG19} has been connected to EPICS.
-%\item Needle valve \texttt{MVV19} has been installed downstream of valve \texttt{HEBT:VV19} to control the vent rate and protect the
-%PGAC window.
-%\item Interlock valve \texttt{VA1} has been installed.
-%\item A flammable gas sensor has been installed, commissioned, and calibrated in the experimental area.
-%\item The Controls group has provided a ``digital out'' port for valve \texttt{VA1},
-%a ``digital out'' port for the HV interlock, and an ``analogue in'' port for \texttt{FC1} flow signal.
+%\item In order to use HV power supplies other than the Iseg modules (which have higher-than-desirable  current limits, but already accept an interlock signal from EPICS), a HV interlock must be installed on the 110\,VAC power to the NIM crate.  Failing that, the Iseg HV power supplies will be used.
+%%, e.g. a commercially available 110\,VAC switch on the HV power supplies  NIM crate supply line.
+%\item Tubing between \texttt{FC1} and the PGAC box; the PGAC box, valve \texttt{VB4}, and the scattering chamber; and between
+%the gas supply panel and \texttt{PU1} should all be copper or stainless steel.
+%\item (Optional) A mask may be fabricated and installed to characterize the position sensitivity of the PGAC.
 %\end{enumerate}
-the following hardware changes must be made:
-\begin{enumerate}
-\setlength{\itemsep}{0pt}
-\setlength{\parskip}{0pt}
-\setlength{\parsep}{0pt}
-\item In order to use HV power supplies other than the Iseg modules (which have higher-than-desirable  current limits, but already accept an interlock signal from EPICS), a HV interlock must be installed on the 110\,VAC power to the NIM crate.  Failing that, the Iseg HV power supplies will be used.
-%, e.g. a commercially available 110\,VAC switch on the HV power supplies  NIM crate supply line.
-\item Tubing between \texttt{FC1} and the PGAC box; the PGAC box, valve \texttt{VB4}, and the scattering chamber; and between
-the gas supply panel and \texttt{PU1} should all be copper or stainless steel.
-\item (Optional) A mask may be fabricated and installed to characterize the position sensitivity of the PGAC.
-\end{enumerate}
+
+The PGAC is designed to be operated with heavy ion beams.  The ionization potential of $\alpha$-decay sources, such as the $^{241}$Am source used in the bench tests,  is insufficient to adequately test the performance of the detector.  For example, with the detector optimized for $\alpha$ particles at 5\,Torr, the signal-to-ratio is %3--4:1
+2.7:1  for the cathode, 10.9:1 for the andode,
+ and the timing resolution is 1.8\,ns~FWHM.  %The jitter induced by the slow rise times of the weak signals
+The ionization from the scattered $^{16}$O beam will be a factor of 12.1 greater than the ionization from the $\alpha$ particles from $^{241}$Am. The robust signals produced by the $^{16}$O will improve the timing resolution by about a factor of 3 and provide a more accurate characterization of the detector.
 
 During testing with the $\alpha$ source, no Mylar window was used on the entrance of the PGAC box.  A 0.9\,$\mu$m-thick window was stress tested and shown to burst at a differential pressure 24\,Torr.  The Mylar window is not supported by wires, therefore the burst pressure is the same in both directions.  During the in-beam testing, a  2.0\,$\mu$m-thick Mylar window will be used.  
 The burst pressure of the 2.0\,$\mu$m-thick Mylar window was measured to be 57\,Torr (which is consistent with a linear relationship between window thickness and burst pressure).
 %The pressure tolerance of the  2.0\,$\mu$m-thick window is estimated to be 100--200\,Torr.  However, the burst pressure of a window of that thickness has not yet been tested. 
+
+
 
 \section{Definition of Hazards}
 The dominant hazard in this experiment is the formation and combustion of a flammable gas
@@ -527,45 +543,97 @@ Throughout these tests, the accelerator will
 be protected by a gate valve.
 \subsection{Procedures}
 \label{procedures}
-To prevent a flammable gas mixture forming within the chamber during venting and filling,
-the following procedures will be followed.
+To prevent a flammable gas mixture forming within the chamber during venting, filling, and other operations,
+the following procedures will be followed. Valve numbers referred to in the procedures are shown in Fig.~\ref{diagram}.
+\subsubsection{Roughing procedure}
+The following initial conditions are assumed.  Valve \texttt{VA1} is closed by interlock and pump \texttt{PU1} has been turned off, closing the automatic valve.  With these two valves closed, the chamber volumes are isolated from the gas lines.  The gas supply lines from the gas shack have been purged with isobutane and both chamber volumes are filled with air.  Beam line valve  \texttt{HEBT:BV19} is closed and turbo pump  \texttt{HEBT:TP19} is off. 
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}%
+%\item Close \texttt{VB3} \marnote{missing $\rightarrow$} to seal the gas exhaust line, not used for air (this valve is not on the diagram)
+\item Open bypass valve \texttt{VB4} between the PGAC box and the scattering chamber.
+\item Open bypass valve \texttt{VB2} on the exhaust line to bypass exhaust needle valve \texttt{VN1}.
+\item Close manual regulating valve \texttt{MRV19} on the roughing line.
+\item Ensure that the following valves are also closed: roughing valve \texttt{HEBT:RV19} on the roughing line, ball valve \texttt{HEBT:BV19} on the turbo backing line, and manual vent valve \texttt{MVV19} on the venting line.
+
+\item In EPICS, turn on roughing pump \texttt{HEBT:BP19}. Open pumping valve \texttt{HEBT:PV19} and roughing valve \texttt{HEBT:RV19} on the roughing line. If manual regulating valve \texttt{MRV19} is closed, the pressures in the chambers should not change.
+\item Adjust manual regulating valve \texttt{MRV19}  while monitoring differential pressure on \texttt{PD1}.  The differential pressure should not exceed $\pm$4\,Torr (0.400\,V).
+\item The PGAC box is considered evacuated when the the pressure on \texttt{HEBT:CG19} has reached 1\,Torr.% and the PGAC box is evacuated, ion gauge \texttt{IG19} may be turned on in EPICS.
+%\item Once the chambers are pumped out, close bypass valve \texttt{VB4} and close roughing valve \texttt{HEVT:RV19} to isolate the chambers.
+%\item Leak check both volumes by monitoring the independent pressure in each volume.  The pressures .
+%\item Open valve \texttt{HEBT:BV19}, start the turbo pump \texttt{HEBT:TP19}, and turn on ionization gauge \texttt{IG19}.
+%\item Set desired pressure on PID
+%\item Close bypass valve \texttt{VB2} on the gas exhaust line. %to bypass the gas flow rate valve \texttt{VN1}
+%\item Verify exhaust valve  \texttt{VB6} is open on the gas supply panel.
+%\item Turn on pump \texttt{PU1} to vent the exhaust.
+%\item Turn on flow control \texttt{FC1} and open vale \texttt{VA1} on the supply line to begin the gas flow.
+%\item Adjust needle valve \texttt{VN1} to obtain the desired flow-rate in \texttt{FC1} (nominally 60\,cc/min).  As the pressure \texttt{PA1} increases, open \texttt{VN1}. Wait until \texttt{PA1} and \texttt{FC1} are stable at their desired values.
+%\item Turn on HV power supplies, ramp the voltage to the desired value, and enabled current trip hold.
+%\item Open gate valve \texttt{HEBT:IV18} to the beam line
+\end{itemize}
+
 \subsubsection{Fill procedure}
-The following initial conditions are assumed.  Valve \texttt{VA1} is closed by interlock and pump \texttt{PU1} has been turned off, closing the automatic valve.  With these two valves closed, the chamber volumes are isolated from the gas lines.  The gas supply lines from the gas shack have been purged with isobutane and both chamber volumes are filled with air.  Valve  \texttt{HEBT:BV19} is closed and the turbo pump is off. 
+The following initial conditions are assumed. The roughing procedure has been followed. The The PGAC box and the scattering chamber have been evacuated. The roughing pump is on and valve \texttt{HEBT:RV19} is open. Bypass valves \texttt{VB4} and \texttt{VB2} are open. %Turbo pump is \texttt{HEBT:TP19} off.
 \begin{itemize}
 \setlength{\itemsep}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\parsep}{0pt}
-%\item Close \texttt{VB3} \marnote{missing $\rightarrow$} to seal the gas exhaust line, not used for air (this valve is not on the diagram)
-\item Open bypass valve \texttt{VB4} between the PGAC box and the scattering chamber.
-\item Open bypass valve \texttt{VB2} on the exhaust line to bypass exhaust needle valve \texttt{VN1}.
-\item Close manual regulating valve \texttt{HEBT:MRV19} on the roughing line.   Ensure that roughing valve \texttt{HEBT:RV19} on the roughing line and ball valve \texttt{HEBT:BV19} on the turbo backing line are also closed.
-\item Open pumping valve \texttt{HEBT:PV19} and roughing valve \texttt{HEBT:RV19} on the roughing line.
-\item Adjust manual regulating valve \texttt{HEBT:MRV19}  while monitoring differential pressure on \texttt{PD1}.  The differential pressure should not exceed $\pm$4\,Torr.
-\item Once the chambers are pumped out, close bypass valve \texttt{VB4} and close roughing valve \texttt{HEVT:RV19} to isolate the chambers.
-\item Leak check both volumes by monitoring the independent pressure in each volume.  The pressures should be stable.
-\item Open valve \texttt{HEBT:BV19}, start the turbo pump \texttt{HEBT:TP19}, and turn on ionization gauge \texttt{IG19}.
+\item %Once the chambers are pumped out,
+Close manual bypass valve \texttt{VB4} on the top of the PGAC box to isolate the PGAC box from the scattering chamber volume.
+\item Close roughing valve \texttt{HEBT:RV19}.
+\item Verify that manual valve ``41'' on the return line and manual valve  ``40'' on the supply line are open on the gas supply panel. These valves should be taped open.  Note that these valves are labeled \texttt{VB6} and \texttt{VB1}, respectively, in Fig.~\ref{diagram}.
+%\item Turn on pump \texttt{PU1} .
+\item Turn on scroll pump \texttt{PU1} located on the GHS cart. % to vent the exhaust line.
+The pressure on \texttt{PA1} may increase.
+
+\item Leak check both volumes by monitoring the independent pressure in each volume.  The pressures  on  \texttt{PA1} and \texttt{HEBT:CG19} should be stable.
+
+\item In EPICS, open valve \texttt{HEBT:BV19},  start turbo pump \texttt{HEBT:TP19}, and turn on ionization gauge \texttt{IG19}.
 \item Set desired pressure on PID
+
 \item Close bypass valve \texttt{VB2} on the gas exhaust line. %to bypass the gas flow rate valve \texttt{VN1}
-\item Verify exhaust valve  \texttt{VB6} is open on the gas supply panel.
-\item Turn on pump \texttt{PU1} to vent the exhaust.
-\item Turn on flow control \texttt{FC1} and open vale \texttt{VA1} on the supply line to begin the gas flow.
-\item Adjust needle valve \texttt{VN1} to obtain the desired flow-rate in \texttt{FC1} (nominally 60\,cc/min).  As the pressure \texttt{PA1} increases, open \texttt{VN1}. Wait until \texttt{PA1} and \texttt{FC1} are stable at their desired values.
-\item Turn on HV power supplies, ramp the voltage to the desired value, and enabled current trip hold.
-\item Open gate valve \texttt{HEBT:IV18} to the beam line
+
+\item Turn on flow control \texttt{FC1} and open vale \texttt{VA1} in EPICS (on the supply line) to begin the gas flow.
+\item Adjust needle valve \texttt{VN1} if necessary to obtain the desired flow-rate in \texttt{FC1} (nominally 60\,cc/min).  As the pressure \texttt{PA1} increases, open \texttt{VN1}. Wait until \texttt{PA1} and \texttt{FC1} are stable at their desired values.
+\item Reset \texttt{HEBT:INTHV} on EPICS.
+\item Turn on HV.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\item Set the trip setting  to ``Auto Reset''
+\item Turn on the power
+\item Set the trip setting to ``Hold''
+\item Set the trip range to 10\,$\mu$A
+\item Ramp the voltage to the set level.  If the unit trips during ramp-up, the auto reset function may be used. 
+\item Lock the voltage dial, if desired
+\item Set the trip range to 1\,$\mu$A.\item Open gate valve \texttt{HEBT:IV18} to the beam line
 \end{itemize}
+%\item Open manual valve on the supply line of the gas supply panel.
+\end{itemize}
+
 \subsubsection{Vent Procedure}
+The following procedure assumes that the PGAC detector is in its normal operating mode---that is, the PGAC is filled with isobutane and the scattering chamber is evacuated. %This procedure is followed to shut down the detector.
 \begin{itemize}
 \setlength{\itemsep}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\parsep}{0pt}
 \item Close beam gate valve \texttt{HEBT:IV18} on the beam line.
 \item Turn off turbo pump \texttt{HEBT:TP19}  and turn off ionization gauge \texttt{IG19}.
-\item Turn off the HV power supplies and close valve \texttt{VA1} on the supply line.
-\item Open flow rate bypass valve \texttt{VB2} to fully evacuate gas from the PGAC box.
-\item Once \texttt{PA1} $\lesssim 1$\,Torr, turn off pump \texttt{PU1}, closing the automatic valve on the gas exhaust line, and open bypass valve \texttt{VB4}.
-\item Close manual regulating valve \texttt{HEBT:MRV19} on the roughing line.   Ensure that the following valves are also closed: roughing valve \texttt{HEBT:RV19} on the roughing line, ball valve \texttt{HEBT:BV19} on the turbo backing line, and manual vent valve \texttt{HEBT:MVV19} on the venting line.
-\item Open valve \texttt{HEBT:VV19} on the venting line.
-\item Adjust the regulating vent valve \texttt{MVV19} on the venting line while monitoring \texttt{PD1}.  The differential pressure should not exceed $\pm$4\,Torr.
+\item Turn off the HV power supplies.
+\item Close automatic valve \texttt{VA1} in EPICS (on the supply line) to turn off the gas flow.
+%\item Close manual valve ``40'' on the gas supply panel. % (this valve is labeled \texttt{VB1} in Fig.~\ref{diagram}).  
+\item Open manual flow rate bypass valve \texttt{VB2} to to bypass needle valve \texttt{VN1}. With the gas supply turned off and the bypass valve open, the pressure on \texttt{PA1} will start to drop until the PGAC box is fully evacuated. 
+\item When the pressure on \texttt{PA1} reaches 100\,mTorr, turn off scroll pump \texttt{PU1} located on the GSH cart. This will close the automatic valve on the gas exhaust line.
+%\item Open bypass valve \texttt{VB4} to connect the volumes of the PGAC box and scattering chamber.
+\item Turn off ion gauge \texttt{IG19} in EPICS.
+\item Close manual regulating valve \texttt{MRV19} on the roughing line. 
+\item Ensure that the following valves are also closed: roughing valve \texttt{HEBT:RV19} on the roughing line, ball valve \texttt{HEBT:BV19} on the turbo backing line, and manual vent valve \texttt{MVV19} on the venting line.
+%\item Open valve \texttt{HEBT:VV19} on the venting line.
+\item Slowly open manual valve \texttt{VB4} located on the top of the PGAC.  This valve connects the volumes of the PGAC box and scattering chamber. Watch the differential pressure on \texttt{PD1}.  Make sure that the pressure stays below 4\,Torr (0.400\,V).
+%\item Adjust the regulating vent valve \texttt{MVV19} on the venting line while monitoring \texttt{PD1}.  The differential pressure should not exceed $\pm$4\,Torr.
+
 \end{itemize}
 \subsubsection{Pressure Change Procedure}
 \begin{itemize}
@@ -594,20 +662,23 @@ The following initial conditions are assumed.  Valve \texttt{VA1} is closed by i
 \end{itemize}
 \subsubsection{Fire Alarm}
 Follow the normal evacuation procedure and leave the area at once.
+
 \section{Definition of Responsibilities}
 The Experiment Leader is responsible for ensuring that during the experiment:
 \begin{enumerate}
 \setlength{\itemsep}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\parsep}{0pt}
-
 \item  There is no unattended operation when detector is in use with gas.
 \item  Everyone on shift has read and understood this report.
 \item  Everyone on shift has demonstrated the procedures described in \S~\ref{procedures}.
 \end{enumerate}
+
 \section{Decommissioning or Disposal}
 No non-standard decommissioning or disposal procedures are required following this experiment.
 
 %\nocite{*}
 \bibliographystyle{elsarticle-aps6} 
 \bibliography{isobutane}
+\input{time_stamp}
+
