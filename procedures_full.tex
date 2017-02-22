@@ -1,0 +1,210 @@
+%\newpage
+%\doublespacing
+%\renewcommand{\subsubsectionmark}[1]{\markright{\thesubsubsection.\ #1}}
+
+\lhead{\rightmark}
+\subsection{Procedures}
+\label{procedures}
+To prevent a flammable gas mixture forming within the chamber during venting, filling, and other operations,
+the following procedures will be followed. The names of gauges, pumps, valves, and interlocks referred to in the procedures are shown in Fig.~\ref{diagram}. Names starting with \texttt{HEBT:} are interlocked and controlled via EPICS. As of this writing the TIGRESS logon for EPICS is used. EPICS is started by entering the following command in a terminal window.
+\vsetlinux
+\begin{quote}
+\begin{Verbatim}
+ssh -X tigress@isacepics1
+\end{Verbatim}
+\end{quote}
+\subsubsection{Roughing procedure}
+The roughing procedure prepares the detector system for the filling procedure.
+The following initial conditions are assumed.  The detector system is in its initial state---that is, both the PGAC box and the scattering chamber are at atmosphere. Valve \texttt{VA1} is closed by interlock and pump \texttt{PU1} has been turned off, closing the automatic valve.  With these two valves closed, the chamber volumes are isolated from the gas lines.  The gas supply lines from the gas shack have been purged with isobutane.  Beam line valve  \texttt{HEBT:BV19} is closed and turbo pump  \texttt{HEBT:TP19} is off. 
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+%\item Close \texttt{VB3} \marnote{missing $\rightarrow$} to seal the gas exhaust line, not used for air (this valve is not on the diagram)
+\item Open bypass valve \texttt{VB4} between the PGAC box and the scattering chamber.
+\item Open bypass valve \texttt{VB2} on the exhaust line to bypass exhaust needle valve \texttt{VN1}.
+\item Close manual regulating valve \texttt{MRV19} on the roughing line.
+\item Ensure that the following valves are also closed: roughing valve \texttt{HEBT:RV19} on the roughing line, ball valve \texttt{HEBT:BV19} on the turbo backing line, and manual vent valve \texttt{MVV19} on the venting line.
+%\item Open vent valve \texttt{HEBT:VV19} on the venting line to pump out the volume between \texttt{HEBT:VV19} and \texttt{MVV19}.
+\item Turn on roughing pump \texttt{HEBT:RP19}.
+\item Once the pressure on \texttt{HEBT:CG19B} is less than 50\,mTorr, open pumping valve \texttt{HEBT:PV19} and roughing valve \texttt{HEBT:RV19} on the roughing line. If manual regulating valve \texttt{MRV19} is closed, the pressures in the chambers should not change. The chamber is now ready for roughing.
+\item Adjust manual regulating valve \texttt{MRV19}  while monitoring differential pressure on \texttt{PD1}.  The differential pressure should not exceed $\pm$4\,Torr (0.400\,V).
+\item The pressure on \texttt{HEBT:CG19} will begin to decrease. When the pressure drops below 10\,Torr, \texttt{PA1} will start to read the pressure in the PGAC box. The system is roughed out %considered evacuated
+ when the the pressure on \texttt{HEBT:CG19} has reached 100\,mTorr.% and the PGAC box is evacuated, ion gauge \texttt{IG19} may be turned on in EPICS.
+%\item Close vent valve \texttt{HEBT:VV19}.
+%\item Turn on pump \texttt{PU1} to vent the exhaust.
+%\item Open gate valve \texttt{HEBT:IV18} to the beam line
+\end{itemize}
+
+\newcommand{\hvon}{ \item Reset \texttt{HEBT:INTHV}.
+\item Turn on the HV power supplies.\\
+The cathodes are energized first. All of the cathodes share the same voltage.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item On the Iseg NHQ 204M module, ensure that the voltage dial is set to zero on channel A.
+\item Turn the HV switch on for channel A.
+\item Ramp the voltage to the desired value. The voltage is read out on the module display when the selector switches are set to A and V.
+\item Lock the voltage dial.
+\end{itemize}
+The anodes are turned on second. The voltage for each detector is applied independently.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item On the Bertan 1755P module, ensure that both voltage dials are set to zero.
+\item Set the trip range to 10\,$\mu$A for both channels.
+\item Set the trip setting  to ``Auto Reset'' for channel both channels.
+\item Connect a digital multimeter to the HV monitor on channel A. Note that 1\,mV = 1\,V~HV.
+\item Turn on the HV power on channel A.
+\item Ramp the voltage to the set level.%If the unit trips during ramp-up, the auto reset function may be used. 
+\item Lock the voltage dial.
+\item Connect the multimeter to the HV monitor on channel B.
+\item Turn on the HV power on channel B.
+\item Set the trip range to 1\,$\mu$A for channel A.
+\item Set the trip setting to ``Hold'' for channel A.
+\item Ramp the voltage to the set level. 
+\item Lock the voltage dial.
+\item Set the trip range to 1\,$\mu$A for channel B.
+\item Set the trip setting to ``Hold'' for channel B.
+\end{itemize}
+}
+
+\newcommand{\hvoff}{ \item Turn off the HV power supplies.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item On the Bertan 1755P module, 
+\item On the Iseg NHQ 204M module, 
+\end{itemize}
+}
+
+
+\newcommand{\turboon}{ %
+\item When the pressure on \texttt{HEBT:CG19A} reaches 50\,mTorr, open valve \texttt{HEBT:BV19}.
+\item Start turbo pump \texttt{HEBT:TP19}.
+\item When the pressure on \texttt{HEBT:CG19} is less than 10\,mTorr, turn on ionization gauge \texttt{HEBT:IG19}.
+}
+
+\newcommand{\pidset}{ %
+\item Adjust the pressure on the PID controller to set the desired pressure in the PGAC box.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item On the PID controller, push index to select SP1 (set pressure).
+\item Use the arrow keys to enter the new set pressure.
+\item Press enter to set the new pressure.
+\item Press index to return to the pressure display. The pressure should be ramping towards the target pressure.
+\end{itemize}
+\item Adjust needle valve \texttt{VN1} if necessary to obtain the desired flow-rate in \texttt{FC1} (nominally 60\,cc/min).  As the pressure \texttt{PA1} increases, open \texttt{VN1}. Wait until \texttt{PA1} and \texttt{FC1} are stable at their desired values.
+%\item Adjust needle valve \texttt{VN1} to desired flow-rate.  Wait until \texttt{PA1} and \texttt{FC1} are stable at their desired values.
+}
+
+
+%\newpage
+\subsubsection{Fill procedure}
+%\singlespace
+The filling procedure brings the PGAC into normal operating mode. The following initial conditions are assumed. The roughing procedure or the purge procedure has been followed. The The PGAC box and the scattering chamber have been evacuated. Roughing pump \texttt{HEBT:BP19} is on and valve \texttt{HEBT:RV19} is open. Bypass valves \texttt{VB4} and \texttt{VB2} are open. %Turbo pump is \texttt{HEBT:TP19} off.
+
+%\doublespace
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item %Once the chambers are pumped out,
+Close manual bypass valve \texttt{VB4} on the top of the PGAC box to isolate the PGAC box from the scattering chamber volume.
+\item Close roughing valve \texttt{HEBT:RV19}. With roughing pump \texttt{HEBT:BP19} on and valve \texttt{HEBT:RV19}  open, valve \texttt{HEBT:RV19} will auto-close when the pressure \texttt{HEBT:CG19} reaches 100mT.
+\item Verify that manual valve ``41'' on the return line and manual valve  ``40'' on the supply line are open on the gas supply panel. These valves should be taped open.  Note that these valves are labeled \texttt{VB6} and \texttt{VB1}, respectively, in Fig.~\ref{diagram}.
+%\item Turn on pump \texttt{PU1} .
+\item Turn on scroll pump \texttt{PU1} located on the GHS cart. % to vent the exhaust line.
+The pressure on \texttt{PA1} may increase.
+\item Leak check both volumes by monitoring the independent pressure in each volume.  The pressures  on  \texttt{PA1} and \texttt{HEBT:CG19} should be stable.
+\turboon
+\item Close bypass valve \texttt{VB2} on the gas exhaust line. 
+\item Turn on flow control \texttt{FC1}. The is the MKS Model 247C 4-channel Readout. Turn on the power to the unit and turn on channel 1.
+\item Open vale \texttt{HEBT:VA1} on the supply line to begin the gas flow.
+\pidset
+
+%\enlargethispage{0.5in}
+\hvon
+\item Call ISAC Operations at x7500 to open gate valve \texttt{HEBT:IV18} to the beam line.
+%\item Open manual valve on the supply line of the gas supply panel.
+\end{itemize}
+\subsubsection{Purge Procedure}
+The purge procedure brings the detector system into standby mode by evacuating the chambers and isolating them from the gas lines. The purge procedure also prepares the chambers for venting. The following initial conditions are assumed. The PGAC detector is in its normal operating mode---that is, the PGAC is filled with isobutane and the scattering chamber is evacuated. %This procedure is followed to shut down the detector.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item Close beam gate valve \texttt{HEBT:IV18} on the beam line. It may be necessary to call ISAC Operations at x7500.
+\item Turn off turbo pump \texttt{HEBT:TP19}.
+\item Turn off ionization gauge \texttt{HEBT:IG19}.
+\item Turn off the HV power supplies.
+\item Close automatic valve \texttt{HEBT:VA1} on the supply line to turn off the gas flow.
+%\item Close manual valve ``40'' on the gas supply panel. % (this valve is labeled \texttt{VB1} in Fig.~\ref{diagram}).  
+\item Open manual flow rate bypass valve \texttt{VB2} to to bypass needle valve \texttt{VN1}. With the gas supply turned off and the bypass valve open, the pressure on \texttt{PA1} will start to drop until the PGAC box is fully evacuated. 
+\item When the pressure on \texttt{PA1} reaches 100\,mTorr, turn off scroll pump \texttt{PU1} located on the GSH cart. This will close the automatic valve on the gas exhaust line. The PGAC box is now evacuated.
+%\item Open bypass valve \texttt{VB4} to connect the volumes of the PGAC box and scattering chamber.
+\item Turn off ion gauge \texttt{HEBT:IG19} in EPICS.
+\item Close manual regulating valve \texttt{MRV19} on the roughing line. 
+\item Slowly open manual valve \texttt{VB4} located on the top of the PGAC.  This valve connects the volumes of the PGAC box and scattering chamber. Watch the differential pressure on \texttt{PD1}.  Make sure that the pressure stays below 4\,Torr (0.400\,V).
+%\item When the pressure on \texttt{HEBT:CG19} has reached 1\,Torr, turn on ion gauge \texttt{IG19}. The cambers are now evacuated.
+\end{itemize}
+If the system will remain evacuated, complete the following steps.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\turboon
+%
+\end{itemize}
+
+%\newpage
+\subsubsection{Vent Procedure}
+The vent procedure returns the detector system to its initial state by venting the chambers to atmosphere. The following initial conditions are assumed. The purge procedure has been followed. 
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item Ensure that the following valves are closed: roughing valve \texttt{HEBT:RV19} on the roughing line, ball valve \texttt{HEBT:BV19} on the turbo backing line, and manual vent valve \texttt{MVV19} on the venting line.
+\item Open valve \texttt{HEBT:VV19} on the venting line. The volume between \texttt{HEBT:VV19} and \texttt{MVV19} is at atmosphere, so the pressures in the chambers will increase after opening \texttt{HEBT:VV19}. The chambers are now ready to vent.
+\item Adjust the regulating vent valve \texttt{MVV19} on the venting line while monitoring \texttt{PD1}.  The differential pressure should not exceed $\pm$4\,Torr (0.400\,V).
+\item The pressure reading on \texttt{PA1} will max out at 10\,Torr. When the pressure one \texttt{HEBT:CG19} has reached 760\,Torr, the chambers are at atmosphere.
+\item Close valves \texttt{HEBT:VV19} and \texttt{MVV19} on the venting line.
+\item If the system is to remain at atmosphere, turn off roughing pump \texttt{HEBT:RP19}.
+%\enlargethispage{1in}
+\end{itemize}
+
+\subsubsection{Pressure Change Procedure}
+The pressure change procedure is used when the detector system is in normal operating mode to change the pressure in the PGAC box.
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item Call ISAC Operation at x7500 to close gate valve \texttt{HEBT:IV18} on the beam line.
+\item Turn off the HV power supplies.
+\pidset
+\hvon
+\item Call ISAC Operations at x7500 to open gate valve \texttt{HEBT:IV18} on the beam line.
+\end{itemize}
+\subsubsection{Gas Alarm Procedure}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item Call ISAC Operations at x7500 to close gate valve \texttt{HEBT:IV18} on the beam line.
+\item Turn off the HV power supplies.
+\item Close valve \texttt{HEBT:VA1} on the gas supply line.
+\item Turn off pump \texttt{PU1}, closing the automatic valve on the gas exhaust line.
+%\item \sout{Close valves \texttt{VB1} and \texttt{VB6} on the gas supply panel.} %Valves \texttt{VB1} and \texttt{VB6} remain open.
+\item Close the manual valve labeled ``40'' on the supply line of the gas supply panel (this valve is labeled \texttt{VB1} in Fig.~\ref{diagram}).
+%Valves \texttt{VB1} and \texttt{VB6} remain open.
+\item Contact Robert Openshaw or Philip Lu.
+\end{itemize}
+\subsubsection{Fire Alarm}
+Follow the normal evacuation procedure and leave the area at once.
+%\singlespacing
+\section{Definition of Responsibilities}
+The Experiment Leader is responsible for ensuring that during the experiment:
+\begin{enumerate}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\item  There is no unattended operation when detector is in use with gas and high voltage.
+\item  Everyone on shift has read and understood this report.
+\item  Everyone on shift has demonstrated the procedures described in Section~\ref{procedures}.
+\end{enumerate}
+
+\section{Decommissioning or Disposal}
+No non-standard decommissioning or disposal procedures are required following this experiment.
