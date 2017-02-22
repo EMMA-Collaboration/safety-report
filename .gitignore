@@ -1,9 +1,12 @@
 #LaTeX
 *.aux
+*.bbl
+*.blg
 *.log
 *.out
 *.pdf
 *.synctex
+!Figures/*.pdf
 
 #Emacs
 *~
